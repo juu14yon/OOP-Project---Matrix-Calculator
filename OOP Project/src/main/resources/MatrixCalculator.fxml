@@ -396,7 +396,7 @@
                                                 <Font name="Century Gothic Bold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="transposeSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#setMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                          <Button fx:id="transposeSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#transposeSetMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -467,7 +467,7 @@
                                                 <Font name="Century Gothic Bold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="determinantSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#setSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                          <Button fx:id="determinantSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#determinantSetSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -538,7 +538,7 @@
                                                 <Font name="Century Gothic Bold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="inverseSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#setSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                          <Button fx:id="inverseSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#inverseSetSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -631,7 +631,7 @@
                                                 <Font name="Century Gothic Bold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="gaussSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#setMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                          <Button fx:id="gaussSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#gaussSetMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
