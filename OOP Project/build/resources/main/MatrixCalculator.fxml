@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.Integer?>
+<VBox maxHeight="-Infinity" minHeight="-Infinity" pickOnBounds="false" prefHeight="250.0" prefWidth="640.0" scaleShape="false" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MatrixCalculatorController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="250.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TabPane prefHeight="225.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Addition">
+                  <content>
+                    <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <GridPane hgap="4.0" layoutY="34.0" prefWidth="231.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <children>
+                                                <Label text="Matrix A/B:">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="additionRows" prefWidth="150.0" GridPane.columnIndex="1" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <ChoiceBox fx:id="additionColumns" prefWidth="150.0" GridPane.columnIndex="3" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <Label text="X" GridPane.columnIndex="2">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                          <Label text="Set matrices size: ">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="additionSetMatricesButton" layoutX="12.0" layoutY="92.0" mnemonicParsing="false" onAction="#additionSetMatricesButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrices" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Result:">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Multiplication">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                                 <items>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <GridPane hgap="4.0" layoutY="34.0" prefWidth="231.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <children>
+                                                <Label text="Matrix A:">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Matrix B:" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="multiplicationARows" prefWidth="150.0" GridPane.columnIndex="1" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <ChoiceBox fx:id="multiplicationBRows" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <ChoiceBox fx:id="multiplicationAColumns" prefWidth="150.0" GridPane.columnIndex="3" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <ChoiceBox fx:id="multiplicationBColumns" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <Label text="X" GridPane.columnIndex="2">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="X" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                          <Label text="Set matrices sizes: ">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="multiplicationSetMatricesButton" layoutX="12.0" layoutY="126.0" mnemonicParsing="false" onAction="#multiplicationSetMatricesButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrices" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Result:">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Transpose">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                                 <items>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <GridPane hgap="4.0" layoutY="34.0" prefWidth="231.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <children>
+                                                <Label text="Matrix:">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="transposeRows" prefWidth="150.0" GridPane.columnIndex="1" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <ChoiceBox fx:id="transposeColumns" prefWidth="150.0" GridPane.columnIndex="3" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <Label text="X" GridPane.columnIndex="2">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                          <Label text="Set matrix size: ">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="transposeSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#setMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Result:">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Determinant">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                                 <items>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <GridPane hgap="4.0" layoutY="34.0" prefHeight="55.0" prefWidth="142.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <children>
+                                                <Label text="Matrix:">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="determinantDimension" prefWidth="150.0" GridPane.columnIndex="1" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                             </children>
+                                          </GridPane>
+                                          <Label text="Set dimension of a square matrix: ">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="determinantSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#setSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Result:">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Inverse">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                                 <items>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <GridPane hgap="4.0" layoutY="34.0" prefHeight="55.0" prefWidth="142.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <children>
+                                                <Label text="Matrix:">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="inverseDimension" prefWidth="150.0" GridPane.columnIndex="1" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                             </children>
+                                          </GridPane>
+                                          <Label text="Set dimension of a square matrix: ">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="inverseSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#setSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Result:">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Gauss Elimination">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                                 <items>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <GridPane hgap="4.0" layoutY="34.0" prefWidth="231.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <children>
+                                                <Label text="Matrix:">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="gaussRows" prefWidth="150.0" GridPane.columnIndex="1" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <ChoiceBox fx:id="gaussColumns" prefWidth="150.0" GridPane.columnIndex="3" >
+                                                    <items>
+                                                        <FXCollections fx:factory="observableArrayList">
+                                                            <Integer fx:value="1" />
+                                                            <Integer fx:value="2" />
+                                                            <Integer fx:value="3" />
+                                                            <Integer fx:value="4" />
+                                                            <Integer fx:value="5" />
+                                                            <Integer fx:value="6" />
+                                                            <Integer fx:value="7" />
+                                                            <Integer fx:value="8" />
+                                                            <Integer fx:value="9" />
+                                                        </FXCollections>
+                                                    </items>
+                                                </ChoiceBox>
+                                                <Label text="X" GridPane.columnIndex="2">
+                                                   <font>
+                                                      <Font name="Century Gothic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                          <Label text="Set matrix size: ">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="gaussSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#setMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Result:">
+                                             <padding>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
