@@ -51,6 +51,7 @@ public class SingleMatrixApp extends Application {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 TextField temp = new TextField();
+                temp.setPrefWidth(50);
                 temp.setId("entry"+i+"-"+j);
                 fields.add(temp);
                 grid.add(temp, j, i);

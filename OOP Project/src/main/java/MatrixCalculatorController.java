@@ -32,17 +32,18 @@ public class MatrixCalculatorController {
 
     @FXML
     void determinantSetSquareMatrixButtonPressed(ActionEvent event) {
-        new SingleMatrixApp(getDeterminantDimension(), getDeterminantDimension());
+        setSingleMatrixAction(new SingleMatrixApp(getDeterminantDimension(), getDeterminantDimension()));
     }
 
     @FXML
     void gaussSetMatrixButtonPressed(ActionEvent event) {
-        new SingleMatrixApp(getGaussRows(), getGaussColumns());
+        setSingleMatrixAction(new SingleMatrixApp(getGaussRows(), getGaussColumns()));
     }
 
     @FXML
     void inverseSetSquareMatrixButtonPressed(ActionEvent event) {
-        new SingleMatrixApp(getInverseDimension(), getInverseDimension());
+        setSingleMatrixAction(new SingleMatrixApp(getInverseDimension(), getInverseDimension()));
+
     }
 
     @FXML
@@ -52,7 +53,10 @@ public class MatrixCalculatorController {
 
     @FXML
     void transposeSetMatrixButtonPressed(ActionEvent event) {
-        SingleMatrixApp set = new SingleMatrixApp(getTransposeRows(), getTransposeColumns());
+        setSingleMatrixAction(new SingleMatrixApp(getTransposeRows(), getTransposeColumns()));
+    }
+
+    void setSingleMatrixAction(SingleMatrixApp set){
         try {
             Stage stage = new Stage();
             set.start(stage);
