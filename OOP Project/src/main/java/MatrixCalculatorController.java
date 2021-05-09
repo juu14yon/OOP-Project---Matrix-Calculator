@@ -2,9 +2,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class MatrixCalculatorController {
+
+    private int[] matrix;
 
     @FXML private ChoiceBox<?> additionRows;
     @FXML private ChoiceBox<?> additionColumns;
@@ -17,6 +20,7 @@ public class MatrixCalculatorController {
     @FXML private ChoiceBox<?> transposeRows;
     @FXML private ChoiceBox<?> transposeColumns;
     @FXML private Button transposeSetMatrixButton;
+    @FXML private Label determinantResult;
     @FXML private ChoiceBox<?> determinantDimension;
     @FXML private Button determinantSetSquareMatrixButton;
     @FXML private ChoiceBox<?> inverseDimension;
@@ -31,29 +35,45 @@ public class MatrixCalculatorController {
     }
 
     @FXML
-    void determinantSetSquareMatrixButtonPressed(ActionEvent event) {
-        setSingleMatrixAction(new SingleMatrixApp(getDeterminantDimension(), getDeterminantDimension()));
-    }
-
-    @FXML
-    void gaussSetMatrixButtonPressed(ActionEvent event) {
-        setSingleMatrixAction(new SingleMatrixApp(getGaussRows(), getGaussColumns()));
-    }
-
-    @FXML
-    void inverseSetSquareMatrixButtonPressed(ActionEvent event) {
-        setSingleMatrixAction(new SingleMatrixApp(getInverseDimension(), getInverseDimension()));
-
-    }
-
-    @FXML
     void multiplicationSetMatricesButtonPressed(ActionEvent event) {
 
     }
 
     @FXML
+    void determinantSetSquareMatrixButtonPressed(ActionEvent event) {
+        SingleMatrixApp setting = new SingleMatrixApp(getDeterminantDimension(), getDeterminantDimension());
+        setSingleMatrixAction(setting);
+
+        matrix = setting.getSingleMatrix();
+
+    }
+
+    @FXML
+    void gaussSetMatrixButtonPressed(ActionEvent event) {
+        SingleMatrixApp setting = new SingleMatrixApp(getGaussRows(), getGaussColumns());
+        setSingleMatrixAction(setting);
+
+        matrix = setting.getSingleMatrix();
+
+    }
+
+    @FXML
+    void inverseSetSquareMatrixButtonPressed(ActionEvent event) {
+        SingleMatrixApp setting = new SingleMatrixApp(getInverseDimension(), getInverseDimension());
+        setSingleMatrixAction(setting);
+
+        matrix = setting.getSingleMatrix();
+
+
+    }
+
+    @FXML
     void transposeSetMatrixButtonPressed(ActionEvent event) {
-        setSingleMatrixAction(new SingleMatrixApp(getTransposeRows(), getTransposeColumns()));
+        SingleMatrixApp setting = new SingleMatrixApp(getTransposeRows(), getTransposeColumns());
+        setSingleMatrixAction(setting);
+
+        matrix = setting.getSingleMatrix();
+
     }
 
     void setSingleMatrixAction(SingleMatrixApp set){

@@ -1,6 +1,7 @@
 MatrixCalculatorMainApp.java
  MatrixCalculatorMainApp
-SingleMatrixApp.java
- SingleMatrixApp
 MatrixCalculatorController.java
  MatrixCalculatorController
+SingleMatrixApp.java
+ SingleMatrixApp
+ SingleMatrixApp$1

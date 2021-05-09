@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,14 +17,13 @@ import java.util.ArrayList;
 public class SingleMatrixApp extends Application {
     private final int rows;
     private final int cols;
-    private boolean square = false;
+    private int[] entries;
+    private Label emptyMessage = new Label("");
+    ArrayList<TextField> fields = new ArrayList<>();
 
     public SingleMatrixApp(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
-        if (rows==cols){
-            this.square = true;
-        }
     }
 
     public static void main(String[] args) {
@@ -34,7 +35,7 @@ public class SingleMatrixApp extends Application {
         GridPane grid = new GridPane();
         VBox box = new VBox();
         Label label = new Label("Fill in your Matrix: ");
-        Button button = new Button("continue");
+        Button button = new Button("Continue");
 
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(12));
@@ -46,8 +47,6 @@ public class SingleMatrixApp extends Application {
         grid.setVgap(2);
         grid.getChildren().clear();
 
-        ArrayList<TextField> fields = new ArrayList<>();
-
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 TextField temp = new TextField();
@@ -58,12 +57,42 @@ public class SingleMatrixApp extends Application {
             }
         }
 
-        box.getChildren().addAll(label, grid, button);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(buttonPressed()){
+                    primaryStage.close();
+                }
+            }
+        });
+
+        box.getChildren().addAll(label, grid, button, emptyMessage);
 
         Scene scene = new Scene(box);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Creating Matrix");
         primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.showAndWait();
+    }
+
+    int[] getSingleMatrix(){
+        return entries;
+    }
+
+
+    boolean buttonPressed(){
+        entries = new int[rows*cols];
+
+        for (int i = 0; i < rows*cols; i++) {
+            try{
+                entries[i] = Integer.parseInt(fields.get(i).getText());
+            }
+            catch (NumberFormatException ex){
+                fields.get(i).requestFocus();
+                emptyMessage.setText("Fill in all cells");
+                return false;
+            }
+        }
+        return true;
     }
 }
