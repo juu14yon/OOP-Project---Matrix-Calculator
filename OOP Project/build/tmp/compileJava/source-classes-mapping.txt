@@ -1,12 +1,12 @@
-TwoMatricesApp.java
- TwoMatricesApp
- TwoMatricesApp$1
+MatrixOperations.java
+ MatrixOperations
 MatrixCalculatorMainApp.java
  MatrixCalculatorMainApp
 SingleMatrixApp.java
  SingleMatrixApp
  SingleMatrixApp$1
-MatrixOperations.java
- MatrixOperations
+TwoMatricesApp.java
+ TwoMatricesApp
+ TwoMatricesApp$1
 MatrixCalculatorController.java
  MatrixCalculatorController

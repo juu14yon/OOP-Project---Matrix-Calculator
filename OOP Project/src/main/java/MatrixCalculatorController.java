@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MatrixCalculatorController {
@@ -86,6 +87,38 @@ public class MatrixCalculatorController {
 
             matrixA = setting.getMatrixA();
             matrixB = setting.getMatrixB();
+            int rowsA = getMultiplicationARows();
+            int dimAB = getMultiplicationAColumns();
+            int colsB = getMultiplicationBColumns();
+
+            int[][] matA = MatrixOperations.ArrayToMatrix(matrixA, rowsA, dimAB);
+            int[][] matB = MatrixOperations.ArrayToMatrix(matrixB, dimAB, colsB);
+            int[][] transposeB = MatrixOperations.Transpose(matB, dimAB, colsB);
+
+            ArrayList result = new ArrayList();
+            int entry;
+
+            for (int i = 0; i < rowsA; i++) {
+                for (int j = 0; j < colsB; j++) {
+                    entry = 0;
+                    for (int k = 0; k < dimAB; k++) {
+                        entry += matA[i][k] * transposeB[j][k];
+                    }
+                    result.add(entry);
+                }
+            }
+
+            for (int i = 0; i < rowsA; i++) {
+                for (int j = 0; j < colsB; j++) {
+                    TextField temp = new TextField(result.get(i*colsB+j).toString());
+                    temp.setEditable(false);
+                    temp.setFocusTraversable(false);
+                    temp.setAlignment(Pos.CENTER);
+                    temp.setPrefWidth(30);
+                    multiplicationResultGrid.add(temp, j, i);
+                }
+            }
+
         }
     }
 
