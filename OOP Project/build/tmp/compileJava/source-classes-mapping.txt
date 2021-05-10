@@ -1,7 +1,10 @@
 MatrixCalculatorMainApp.java
  MatrixCalculatorMainApp
-MatrixCalculatorController.java
- MatrixCalculatorController
 SingleMatrixApp.java
  SingleMatrixApp
  SingleMatrixApp$1
+TwoMatricesApp.java
+ TwoMatricesApp
+ TwoMatricesApp$1
+MatrixCalculatorController.java
+ MatrixCalculatorController
