@@ -1,3 +1,4 @@
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -7,6 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class MatrixCalculatorController {
 
@@ -39,6 +43,7 @@ public class MatrixCalculatorController {
     @FXML private ChoiceBox<?> inverseDimension;
     @FXML private Button inverseSetSquareMatrixButton;
     @FXML private GridPane inverseResultGrid;
+    @FXML private Label inverseErrorMessage;
 
     @FXML private ChoiceBox<?> gaussRows;
     @FXML private ChoiceBox<?> gaussColumns;
@@ -91,6 +96,9 @@ public class MatrixCalculatorController {
 
         matrix = setting.getSingleMatrix();
 
+        int[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
+        int determinant = MatrixOperations.determinantOfMatrix(mat,(int)Math.sqrt(matrix.length));
+        determinantResult.setText(String.valueOf(determinant));
     }
 
     @FXML
@@ -108,8 +116,29 @@ public class MatrixCalculatorController {
         setSingleMatrixAction(setting);
 
         matrix = setting.getSingleMatrix();
-
-
+        int size = (int)Math.sqrt(matrix.length);
+        int[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
+        float[][] inv = new float[size][size];
+        try {
+            if(MatrixOperations.inverse(mat, inv, size)){
+                for (int j = 0; j<size; j++){
+                    for(int i=0; i<size; i++){
+                        TextField text = new TextField(String. format("%.3f",inv[j][i]));
+                        text.setEditable(false);
+                        text.setFocusTraversable(false);
+                        text.setAlignment(Pos.CENTER);
+                        text.setPrefWidth(30);
+                        text.setMinWidth(50);
+                        inverseResultGrid.add(text, j, i);
+                    }
+                }
+            }
+            else {
+                inverseErrorMessage.setText("Singular matrix, can't find its inverse");
+            }
+        }catch (Exception e){
+            inverseErrorMessage.setText("Inverse matrix doesn't exist");
+        }
     }
 
     @FXML
@@ -118,6 +147,22 @@ public class MatrixCalculatorController {
         setSingleMatrixAction(setting);
 
         matrix = setting.getSingleMatrix();
+        int rows =  getTransposeRows();
+        int cols = getTransposeColumns();
+
+        int[][] mat = MatrixOperations.ArrayToMatrix(matrix, rows, cols);
+        int[][] result = MatrixOperations.Transpose(mat, rows, cols);
+        for (int j = 0; j<rows; j++){
+            for(int i=0; i<cols; i++){
+                TextField text = new TextField(String. format("%d",result[i][j]));
+                text.setEditable(false);
+                text.setFocusTraversable(false);
+                text.setAlignment(Pos.CENTER);
+                text.setPrefWidth(30);
+                text.setMinWidth(50);
+                transposeResultGrid.add(text, j, i);
+            }
+        }
 
     }
 
