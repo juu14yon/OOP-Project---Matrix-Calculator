@@ -9,15 +9,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MatrixCalculatorController {
 
-    private int[] matrix;
-    private int[] matrixA;
-    private int[] matrixB;
+    private double[] matrix;
+    private double[] matrixA;
+    private double[] matrixB;
 
     @FXML private ChoiceBox<?> additionRows;
     @FXML private ChoiceBox<?> additionColumns;
@@ -60,7 +59,7 @@ public class MatrixCalculatorController {
         matrixA = setting.getMatrixA();
         matrixB = setting.getMatrixB();
 
-        int[] additionResult = new int[getAdditionColumns()*getAdditionRows()];
+        double[] additionResult = new double[getAdditionColumns()*getAdditionRows()];
 
         for (int i = 0; i < getAdditionRows(); i++) {
             for (int j = 0; j < getAdditionColumns(); j++) {
@@ -70,6 +69,7 @@ public class MatrixCalculatorController {
                 temp.setFocusTraversable(false);
                 temp.setAlignment(Pos.CENTER);
                 temp.setPrefWidth(30);
+                temp.setMinWidth(50);
                 additionResultGrid.add(temp, j, i);
             }
         }
@@ -92,12 +92,12 @@ public class MatrixCalculatorController {
             int dimAB = getMultiplicationAColumns();
             int colsB = getMultiplicationBColumns();
 
-            int[][] matA = MatrixOperations.ArrayToMatrix(matrixA, rowsA, dimAB);
-            int[][] matB = MatrixOperations.ArrayToMatrix(matrixB, dimAB, colsB);
-            int[][] transposeB = MatrixOperations.Transpose(matB, dimAB, colsB);
+            double[][] matA = MatrixOperations.ArrayToMatrix(matrixA, rowsA, dimAB);
+            double[][] matB = MatrixOperations.ArrayToMatrix(matrixB, dimAB, colsB);
+            double[][] transposeB = MatrixOperations.Transpose(matB, dimAB, colsB);
 
             ArrayList result = new ArrayList();
-            int entry;
+            double entry;
 
             for (int i = 0; i < rowsA; i++) {
                 for (int j = 0; j < colsB; j++) {
@@ -115,7 +115,8 @@ public class MatrixCalculatorController {
                     temp.setEditable(false);
                     temp.setFocusTraversable(false);
                     temp.setAlignment(Pos.CENTER);
-                    temp.setPrefWidth(30);
+                    temp.setPrefWidth(50);
+                    temp.setMinWidth(50);
                     multiplicationResultGrid.add(temp, j, i);
                 }
             }
@@ -130,8 +131,8 @@ public class MatrixCalculatorController {
 
         matrix = setting.getSingleMatrix();
 
-        int[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
-        int determinant = MatrixOperations.determinantOfMatrix(mat,(int)Math.sqrt(matrix.length));
+        double[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
+        double determinant = MatrixOperations.determinantOfMatrix(mat,(int)Math.sqrt(matrix.length));
         determinantResult.setText(String.valueOf(determinant));
     }
 
@@ -186,8 +187,8 @@ public class MatrixCalculatorController {
 
         matrix = setting.getSingleMatrix();
         int size = (int)Math.sqrt(matrix.length);
-        int[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
-        float[][] inv = new float[size][size];
+        double[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
+        double[][] inv = new double[size][size];
         try {
             if(MatrixOperations.inverse(mat, inv, size)){
                 for (int j = 0; j<size; j++){
@@ -219,11 +220,11 @@ public class MatrixCalculatorController {
         int rows =  getTransposeRows();
         int cols = getTransposeColumns();
 
-        int[][] mat = MatrixOperations.ArrayToMatrix(matrix, rows, cols);
-        int[][] result = MatrixOperations.Transpose(mat, rows, cols);
+        double[][] mat = MatrixOperations.ArrayToMatrix(matrix, rows, cols);
+        double[][] result = MatrixOperations.Transpose(mat, rows, cols);
         for (int j = 0; j<rows; j++){
             for(int i=0; i<cols; i++){
-                TextField text = new TextField(String. format("%d",result[i][j]));
+                TextField text = new TextField(String. format("%.2f",result[i][j]));
                 text.setEditable(false);
                 text.setFocusTraversable(false);
                 text.setAlignment(Pos.CENTER);

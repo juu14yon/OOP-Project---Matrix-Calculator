@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class SingleMatrixApp extends Application {
     private final int rows;
     private final int cols;
-    private int[] entries;
+    private double[] entries;
     private Label emptyMessage = new Label("");
     ArrayList<TextField> fields = new ArrayList<>();
 
@@ -75,17 +75,17 @@ public class SingleMatrixApp extends Application {
         primaryStage.showAndWait();
     }
 
-    int[] getSingleMatrix(){
+    double[] getSingleMatrix(){
         return entries;
     }
 
 
     boolean buttonPressed(){
-        entries = new int[rows*cols];
+        entries = new double[rows*cols];
 
         for (int i = 0; i < rows*cols; i++) {
             try{
-                entries[i] = Integer.parseInt(fields.get(i).getText());
+                entries[i] = Double.parseDouble(fields.get(i).getText());
             }
             catch (NumberFormatException ex){
                 fields.get(i).requestFocus();

@@ -19,8 +19,8 @@ public class TwoMatricesApp extends Application {
     private final int aCols;
     private final int bRows;
     private final int bCols;
-    private int[] aEntries;
-    private int[] bEntries;
+    private double[] aEntries;
+    private double[] bEntries;
     private Label emptyMessage = new Label("");
     ArrayList<TextField> aFields = new ArrayList<>();
     ArrayList<TextField> bFields = new ArrayList<>();
@@ -98,19 +98,19 @@ public class TwoMatricesApp extends Application {
         primaryStage.showAndWait();
     }
 
-    int[] getMatrixA(){
+    double[] getMatrixA(){
         return aEntries;
     }
-    int[] getMatrixB() { return bEntries; }
+    double[] getMatrixB() { return bEntries; }
 
 
     boolean buttonPressed(){
-        aEntries = new int[aRows*aCols];
-        bEntries = new int[bRows*bCols];
+        aEntries = new double[aRows*aCols];
+        bEntries = new double[bRows*bCols];
 
         for (int i = 0; i < aRows*aCols; i++) {
             try{
-                aEntries[i] = Integer.parseInt(aFields.get(i).getText());
+                aEntries[i] = Double.parseDouble(aFields.get(i).getText());
             }
             catch (NumberFormatException ex){
                 aFields.get(i).requestFocus();
@@ -121,7 +121,7 @@ public class TwoMatricesApp extends Application {
 
         for (int i = 0; i < bRows*bCols; i++) {
             try{
-                bEntries[i] = Integer.parseInt(bFields.get(i).getText());
+                bEntries[i] = Double.parseDouble(bFields.get(i).getText());
             }
             catch (NumberFormatException ex){
                 bFields.get(i).requestFocus();
