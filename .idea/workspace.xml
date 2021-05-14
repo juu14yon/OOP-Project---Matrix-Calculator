@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f75d0163-359c-4bc2-a7b0-941dff9373fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/build/classes/java/main/MatrixCalculatorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/build/classes/java/main/MatrixCalculatorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/build/classes/java/main/MatrixOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/build/classes/java/main/MatrixOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/build/resources/main/MatrixCalculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/build/resources/main/MatrixCalculator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorMainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorMainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP Project/src/main/resources/MatrixCalculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/resources/MatrixCalculator.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +69,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1sIP8oSH6M5rfwIiCz8jl33ooOe" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -66,6 +88,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TipCalculator" />
@@ -79,19 +102,6 @@
       <module name="MatrixCalculator.main" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml " />
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="OOP Project [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -134,11 +144,25 @@
       <option name="presentableId" value="Default" />
       <updated>1620556995304</updated>
       <workItem from="1620557008894" duration="5565000" />
-      <workItem from="1620634872310" duration="16410000" />
+      <workItem from="1620634872310" duration="20683000" />
+      <workItem from="1620895850190" duration="592000" />
+      <workItem from="1620982433890" duration="3239000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

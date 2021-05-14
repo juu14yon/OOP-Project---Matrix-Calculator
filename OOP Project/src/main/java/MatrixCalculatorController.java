@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class MatrixCalculatorController {
@@ -49,6 +48,7 @@ public class MatrixCalculatorController {
     @FXML private ChoiceBox<?> gaussColumns;
     @FXML private Button gaussSetMatrixButton;
     @FXML private GridPane gaussResultGrid;
+    @FXML private Label gaussErrorMessage;
 
     @FXML
     void additionSetMatricesButtonPressed(ActionEvent event) {
@@ -107,6 +107,41 @@ public class MatrixCalculatorController {
         setSingleMatrixAction(setting);
 
         matrix = setting.getSingleMatrix();
+        int rows =  getGaussRows();
+        int cols = getGaussColumns();
+        double[][] mat = MatrixOperations.DoubleArrayToMatrix(matrix, rows, cols);
+        if(cols<=rows){
+            gaussErrorMessage.setText("The system is inconsistent");
+        }
+        else{
+            double[][] matA = MatrixOperations.GetMatrixA(mat, rows, cols);
+            double[] matB = MatrixOperations.GetMatrixB(mat, rows, cols);
+
+
+            System.out.println(Arrays.deepToString(matA));
+            System.out.println(Arrays.toString(matB));
+
+            int flag = MatrixOperations.PerformOperation(mat, rows);
+            if(flag == 1){
+                flag = MatrixOperations.CheckConsistency(mat, rows);
+            }
+
+
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j <= rows; j++){
+                    TextField text = new TextField(String. format("%.3f",mat[i][j]));
+                    text.setEditable(false);
+                    text.setFocusTraversable(false);
+                    text.setAlignment(Pos.CENTER);
+                    text.setPrefWidth(30);
+                    text.setMinWidth(50);
+                    gaussResultGrid.add(text, j, i);
+                }
+            }
+
+            gaussErrorMessage.setText(MatrixOperations.Result(mat, rows, flag));
+        }
+
 
     }
 

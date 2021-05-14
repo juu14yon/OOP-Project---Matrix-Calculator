@@ -15,6 +15,30 @@ public class MatrixOperations {
         return result;
     }
 
+    static double[][] GetMatrixA(double[][] mat, int rows, int cols){
+        double[][] matA = {};
+        for(int i = 0; i<rows; ++i){
+            double[] row = {};
+            for(int j = 0; j<cols-1; ++j){
+                row = Arrays.copyOf(row, row.length + 1);
+                row[row.length-1] = mat[i][j];
+            }
+            matA = Arrays.copyOf(matA, matA.length + 1);
+            matA[matA.length-1] = row;
+        }
+        return matA;
+    }
+
+    static double[] GetMatrixB(double[][] mat, int rows, int cols){
+        double[] matB = {};
+        for(int i = 0; i<rows; i++){
+            matB = Arrays.copyOf(matB, matB.length + 1);
+            matB[matB.length-1] = mat[i][cols-1];
+        }
+        return matB;
+    }
+
+
     static int[][] Transpose(int[][] mat, int rows, int cols){
         int[][] result = {};
         for(int i = 0; i < cols; i++){
@@ -33,9 +57,25 @@ public class MatrixOperations {
         int[][] result = {};
         for (int j = 0; j<rows;j++){
             int[] row = {};
+            int i = 0;
+            while (i<cols) {
+                row = Arrays.copyOf(row, row.length + 1);
+                row[row.length-1] = matrix[i+cols*j];
+                i++;
+            }
+            result = Arrays.copyOf(result, result.length + 1);
+            result[result.length-1] = row;
+        }
+        return result;
+    }
+
+    static double[][] DoubleArrayToMatrix(int[] matrix, int rows, int cols){
+        double[][] result = {};
+        for (int j = 0; j<rows;j++){
+            double[] row = {};
             for (int i = 0; i<cols; i++){
                 row = Arrays.copyOf(row, row.length + 1);
-                row[row.length-1] = matrix[(int) (i+cols*j)];
+                row[row.length-1] = matrix[i+cols*j];
             }
             result = Arrays.copyOf(result, result.length + 1);
             result[result.length-1] = row;
@@ -106,7 +146,7 @@ public class MatrixOperations {
         return D;
     }
 
-    static void adjoint(int A[][],int [][]adj, int n)
+    static void adjoin(int[][] A, int [][]adj, int n)
     {
         if (n == 1)
         {
@@ -115,7 +155,7 @@ public class MatrixOperations {
         }
 
         // temp is used to store cofactors of A[][]
-        int sign = 1;
+        int sign;
         int [][]temp = new int[n][n];
 
         for (int i = 0; i < n; i++)
@@ -136,7 +176,7 @@ public class MatrixOperations {
         }
     }
 
-    static boolean inverse(int A[][], float[][] inverse, int n)
+    static boolean inverse(int[][] A, float[][] inverse, int n)
     {
         // Find determinant of A[][]
         int det = determinantOfMatrix(A, n);
@@ -146,9 +186,9 @@ public class MatrixOperations {
             return false;
         }
 
-        // Find adjoint
+        // Find adjoin
         int [][]adj = new int[n][n];
-        adjoint(A, adj, n);
+        adjoin(A, adj, n);
 
         // Find Inverse using formula "inverse(A) = adj(A)/det(A)"
         for (int i = 0; i < n; i++)
@@ -158,24 +198,84 @@ public class MatrixOperations {
         return true;
     }
 
-    static void display(int A[][], int n)
-    {
-        for (int i = 0; i < n; i++)
+    static int PerformOperation(double[][] a, int n) {
+        int i, j, k, c, flag = 0;
+
+        // Performing elementary operations
+        for (i = 0; i < n; i++)
         {
-            for (int j = 0; j < n; j++)
-                System.out.print(A[i][j]+ " ");
-            System.out.println();
+            if (a[i][i] == 0)
+            {
+                c = 1;
+                while ((i + c) < n && a[i + c][i] == 0)
+                    c++;
+                if ((i + c) == n)
+                {
+                    flag = 1;
+                    break;
+                }
+                for (j = i, k = 0; k <= n; k++)
+                {
+                    double temp =a[j][k];
+                    a[j][k] = a[j+c][k];
+                    a[j+c][k] = temp;
+                }
+            }
+
+            for (j = 0; j < n; j++)
+            {
+
+                // Excluding all i == j
+                if (i != j)
+                {
+
+                    // Converting Matrix to reduced row
+                    // echelon form(diagonal matrix)
+                    double p = a[j][i] / a[i][i];
+
+                    for (k = 0; k <= n; k++)
+                        a[j][k] = a[j][k] - (a[i][k]) * p;
+                }
+            }
         }
+        return flag;
     }
 
-    static void display(float A[][], int n)
-    {
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-                System.out.printf("%.6f ",A[i][j]);
-            System.out.println();
+    static String Result(double[][] a, int n, int flag) {
+        if (flag == 2){
+            return "Infinite Solutions Exists";
         }
+        else if (flag == 3){
+            return "No Solution Exists";
+        }
+            // Printing the solution by dividing constants by
+            // their respective diagonal elements
+        else {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < n; i++){
+                result.append(String.format("%.2f", (a[i][n] / a[i][i]))).append(" ");
+            }
+            return result.toString();
+        }
+
+    }
+
+    static int CheckConsistency(double[][] a, int n) {
+        int i, j;
+        double sum;
+
+        // flag == 2 for infinite solution
+        // flag == 3 for No solution
+        int flag = 3;
+        for (i = 0; i < n; i++)
+        {
+            sum = 0;
+            for (j = 0; j < n; j++)
+                sum = sum + a[i][j];
+            if (sum == a[i][j])
+                flag = 2;
+        }
+        return flag;
     }
 
 }

@@ -6,7 +6,7 @@ MatrixCalculatorMainApp.java
 SingleMatrixApp.java
  SingleMatrixApp
  SingleMatrixApp$1
-MatrixOperations.java
- MatrixOperations
 MatrixCalculatorController.java
  MatrixCalculatorController
+MatrixOperations.java
+ MatrixOperations

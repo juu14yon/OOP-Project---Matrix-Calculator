@@ -592,7 +592,7 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                           </GridPane>
-                                          <Label fx:id="InverseMatrixError" layoutX="15.0" layoutY="40.0" />
+                                          <Label fx:id="inverseErrorMessage" layoutX="15.0" layoutY="40.0" />
                                        </children>
                                     </AnchorPane>
                                  </items>
@@ -695,6 +695,7 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                           </GridPane>
+                                          <Label fx:id="gaussErrorMessage" layoutX="63.0" layoutY="15.0" />
                                        </children>
                                     </AnchorPane>
                                  </items>
