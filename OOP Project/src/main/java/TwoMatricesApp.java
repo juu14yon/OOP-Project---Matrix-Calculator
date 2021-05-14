@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class TwoMatricesApp extends Application {
+    private boolean stageCanceled = false;
     private final int aRows;
     private final int aCols;
     private final int bRows;
@@ -44,6 +45,7 @@ public class TwoMatricesApp extends Application {
         Label aLabel = new Label("Fill in your Matrix A: ");
         Label bLabel = new Label("Fill in your Matrix B: ");
         Button button = new Button("Continue");
+        Button cancelButton = new Button("Close");
 
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(12));
@@ -89,7 +91,16 @@ public class TwoMatricesApp extends Application {
             }
         });
 
-        box.getChildren().addAll(aLabel, aGrid, bLabel, bGrid, button, emptyMessage);
+        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stageCanceled = true;
+                primaryStage.close();
+            }
+        });
+
+
+        box.getChildren().addAll(aLabel, aGrid, bLabel, bGrid, button, emptyMessage, cancelButton);
 
         Scene scene = new Scene(box);
         primaryStage.setResizable(false);
@@ -130,6 +141,10 @@ public class TwoMatricesApp extends Application {
             }
         }
         return true;
+    }
+
+    boolean wasStageCanceled(){
+        return stageCanceled;
     }
 }
 

@@ -56,21 +56,23 @@ public class MatrixCalculatorController {
         TwoMatricesApp setting = new TwoMatricesApp(getAdditionRows(), getAdditionColumns(), getAdditionRows(), getAdditionColumns());
         setTwoMatricesAction(setting);
 
-        matrixA = setting.getMatrixA();
-        matrixB = setting.getMatrixB();
+        if(!setting.wasStageCanceled()) {
+            matrixA = setting.getMatrixA();
+            matrixB = setting.getMatrixB();
 
-        double[] additionResult = new double[getAdditionColumns()*getAdditionRows()];
+            double[] additionResult = new double[getAdditionColumns() * getAdditionRows()];
 
-        for (int i = 0; i < getAdditionRows(); i++) {
-            for (int j = 0; j < getAdditionColumns(); j++) {
-                additionResult[i*getAdditionColumns()+j] = matrixA[i*getAdditionColumns()+j] + matrixB[i*getAdditionColumns()+j];
-                TextField temp = new TextField(""+additionResult[i*getAdditionColumns()+j]);
-                temp.setEditable(false);
-                temp.setFocusTraversable(false);
-                temp.setAlignment(Pos.CENTER);
-                temp.setPrefWidth(30);
-                temp.setMinWidth(50);
-                additionResultGrid.add(temp, j, i);
+            for (int i = 0; i < getAdditionRows(); i++) {
+                for (int j = 0; j < getAdditionColumns(); j++) {
+                    additionResult[i * getAdditionColumns() + j] = matrixA[i * getAdditionColumns() + j] + matrixB[i * getAdditionColumns() + j];
+                    TextField temp = new TextField("" + additionResult[i * getAdditionColumns() + j]);
+                    temp.setEditable(false);
+                    temp.setFocusTraversable(false);
+                    temp.setAlignment(Pos.CENTER);
+                    temp.setPrefWidth(30);
+                    temp.setMinWidth(50);
+                    additionResultGrid.add(temp, j, i);
+                }
             }
         }
     }
@@ -86,41 +88,42 @@ public class MatrixCalculatorController {
             TwoMatricesApp setting = new TwoMatricesApp(getMultiplicationARows(), getMultiplicationAColumns(), getMultiplicationAColumns(), getMultiplicationBColumns());
             setTwoMatricesAction(setting);
 
-            matrixA = setting.getMatrixA();
-            matrixB = setting.getMatrixB();
-            int rowsA = getMultiplicationARows();
-            int dimAB = getMultiplicationAColumns();
-            int colsB = getMultiplicationBColumns();
+            if(!setting.wasStageCanceled()) {
+                matrixA = setting.getMatrixA();
+                matrixB = setting.getMatrixB();
+                int rowsA = getMultiplicationARows();
+                int dimAB = getMultiplicationAColumns();
+                int colsB = getMultiplicationBColumns();
 
-            double[][] matA = MatrixOperations.ArrayToMatrix(matrixA, rowsA, dimAB);
-            double[][] matB = MatrixOperations.ArrayToMatrix(matrixB, dimAB, colsB);
-            double[][] transposeB = MatrixOperations.Transpose(matB, dimAB, colsB);
+                double[][] matA = MatrixOperations.ArrayToMatrix(matrixA, rowsA, dimAB);
+                double[][] matB = MatrixOperations.ArrayToMatrix(matrixB, dimAB, colsB);
+                double[][] transposeB = MatrixOperations.Transpose(matB, dimAB, colsB);
 
-            ArrayList result = new ArrayList();
-            double entry;
+                ArrayList result = new ArrayList();
+                double entry;
 
-            for (int i = 0; i < rowsA; i++) {
-                for (int j = 0; j < colsB; j++) {
-                    entry = 0;
-                    for (int k = 0; k < dimAB; k++) {
-                        entry += matA[i][k] * transposeB[j][k];
+                for (int i = 0; i < rowsA; i++) {
+                    for (int j = 0; j < colsB; j++) {
+                        entry = 0;
+                        for (int k = 0; k < dimAB; k++) {
+                            entry += matA[i][k] * transposeB[j][k];
+                        }
+                        result.add(entry);
                     }
-                    result.add(entry);
+                }
+
+                for (int i = 0; i < rowsA; i++) {
+                    for (int j = 0; j < colsB; j++) {
+                        TextField temp = new TextField(result.get(i * colsB + j).toString());
+                        temp.setEditable(false);
+                        temp.setFocusTraversable(false);
+                        temp.setAlignment(Pos.CENTER);
+                        temp.setPrefWidth(50);
+                        temp.setMinWidth(50);
+                        multiplicationResultGrid.add(temp, j, i);
+                    }
                 }
             }
-
-            for (int i = 0; i < rowsA; i++) {
-                for (int j = 0; j < colsB; j++) {
-                    TextField temp = new TextField(result.get(i*colsB+j).toString());
-                    temp.setEditable(false);
-                    temp.setFocusTraversable(false);
-                    temp.setAlignment(Pos.CENTER);
-                    temp.setPrefWidth(50);
-                    temp.setMinWidth(50);
-                    multiplicationResultGrid.add(temp, j, i);
-                }
-            }
-
         }
     }
 
@@ -129,11 +132,13 @@ public class MatrixCalculatorController {
         SingleMatrixApp setting = new SingleMatrixApp(getDeterminantDimension(), getDeterminantDimension());
         setSingleMatrixAction(setting);
 
-        matrix = setting.getSingleMatrix();
+        if(!setting.wasStageCanceled()) {
+            matrix = setting.getSingleMatrix();
 
-        double[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
-        double determinant = MatrixOperations.determinantOfMatrix(mat,(int)Math.sqrt(matrix.length));
-        determinantResult.setText(String.valueOf(determinant));
+            double[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
+            double determinant = MatrixOperations.determinantOfMatrix(mat, (int) Math.sqrt(matrix.length));
+            determinantResult.setText(String.valueOf(determinant));
+        }
     }
 
     @FXML
@@ -141,43 +146,42 @@ public class MatrixCalculatorController {
         SingleMatrixApp setting = new SingleMatrixApp(getGaussRows(), getGaussColumns());
         setSingleMatrixAction(setting);
 
-        matrix = setting.getSingleMatrix();
-        int rows =  getGaussRows();
-        int cols = getGaussColumns();
-        double[][] mat = MatrixOperations.DoubleArrayToMatrix(matrix, rows, cols);
-        if(cols<=rows){
-            gaussErrorMessage.setText("The system is inconsistent");
-        }
-        else{
-            double[][] matA = MatrixOperations.GetMatrixA(mat, rows, cols);
-            double[] matB = MatrixOperations.GetMatrixB(mat, rows, cols);
+        if(!setting.wasStageCanceled()) {
+            matrix = setting.getSingleMatrix();
+            int rows = getGaussRows();
+            int cols = getGaussColumns();
+            double[][] mat = MatrixOperations.DoubleArrayToMatrix(matrix, rows, cols);
+            if (cols <= rows) {
+                gaussErrorMessage.setText("The system is inconsistent");
+            } else {
+                double[][] matA = MatrixOperations.GetMatrixA(mat, rows, cols);
+                double[] matB = MatrixOperations.GetMatrixB(mat, rows, cols);
 
 
-            System.out.println(Arrays.deepToString(matA));
-            System.out.println(Arrays.toString(matB));
+                System.out.println(Arrays.deepToString(matA));
+                System.out.println(Arrays.toString(matB));
 
-            int flag = MatrixOperations.PerformOperation(mat, rows);
-            if(flag == 1){
-                flag = MatrixOperations.CheckConsistency(mat, rows);
-            }
-
-
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j <= rows; j++){
-                    TextField text = new TextField(String. format("%.3f",mat[i][j]));
-                    text.setEditable(false);
-                    text.setFocusTraversable(false);
-                    text.setAlignment(Pos.CENTER);
-                    text.setPrefWidth(30);
-                    text.setMinWidth(50);
-                    gaussResultGrid.add(text, j, i);
+                int flag = MatrixOperations.PerformOperation(mat, rows);
+                if (flag == 1) {
+                    flag = MatrixOperations.CheckConsistency(mat, rows);
                 }
+
+
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j <= rows; j++) {
+                        TextField text = new TextField(String.format("%.3f", mat[i][j]));
+                        text.setEditable(false);
+                        text.setFocusTraversable(false);
+                        text.setAlignment(Pos.CENTER);
+                        text.setPrefWidth(30);
+                        text.setMinWidth(50);
+                        gaussResultGrid.add(text, j, i);
+                    }
+                }
+
+                gaussErrorMessage.setText(MatrixOperations.Result(mat, rows, flag));
             }
-
-            gaussErrorMessage.setText(MatrixOperations.Result(mat, rows, flag));
         }
-
-
     }
 
     @FXML
@@ -185,29 +189,30 @@ public class MatrixCalculatorController {
         SingleMatrixApp setting = new SingleMatrixApp(getInverseDimension(), getInverseDimension());
         setSingleMatrixAction(setting);
 
-        matrix = setting.getSingleMatrix();
-        int size = (int)Math.sqrt(matrix.length);
-        double[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
-        double[][] inv = new double[size][size];
-        try {
-            if(MatrixOperations.inverse(mat, inv, size)){
-                for (int j = 0; j<size; j++){
-                    for(int i=0; i<size; i++){
-                        TextField text = new TextField(String. format("%.3f",inv[j][i]));
-                        text.setEditable(false);
-                        text.setFocusTraversable(false);
-                        text.setAlignment(Pos.CENTER);
-                        text.setPrefWidth(30);
-                        text.setMinWidth(50);
-                        inverseResultGrid.add(text, j, i);
+        if(!setting.wasStageCanceled()) {
+            matrix = setting.getSingleMatrix();
+            int size = (int) Math.sqrt(matrix.length);
+            double[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
+            double[][] inv = new double[size][size];
+            try {
+                if (MatrixOperations.inverse(mat, inv, size)) {
+                    for (int j = 0; j < size; j++) {
+                        for (int i = 0; i < size; i++) {
+                            TextField text = new TextField(String.format("%.3f", inv[j][i]));
+                            text.setEditable(false);
+                            text.setFocusTraversable(false);
+                            text.setAlignment(Pos.CENTER);
+                            text.setPrefWidth(30);
+                            text.setMinWidth(50);
+                            inverseResultGrid.add(text, j, i);
+                        }
                     }
+                } else {
+                    inverseErrorMessage.setText("Singular matrix, can't find its inverse");
                 }
+            } catch (Exception e) {
+                inverseErrorMessage.setText("Inverse matrix doesn't exist");
             }
-            else {
-                inverseErrorMessage.setText("Singular matrix, can't find its inverse");
-            }
-        }catch (Exception e){
-            inverseErrorMessage.setText("Inverse matrix doesn't exist");
         }
     }
 
@@ -216,24 +221,25 @@ public class MatrixCalculatorController {
         SingleMatrixApp setting = new SingleMatrixApp(getTransposeRows(), getTransposeColumns());
         setSingleMatrixAction(setting);
 
-        matrix = setting.getSingleMatrix();
-        int rows =  getTransposeRows();
-        int cols = getTransposeColumns();
+        if(!setting.wasStageCanceled()) {
+            matrix = setting.getSingleMatrix();
+            int rows = getTransposeRows();
+            int cols = getTransposeColumns();
 
-        double[][] mat = MatrixOperations.ArrayToMatrix(matrix, rows, cols);
-        double[][] result = MatrixOperations.Transpose(mat, rows, cols);
-        for (int j = 0; j<rows; j++){
-            for(int i=0; i<cols; i++){
-                TextField text = new TextField(String. format("%.2f",result[i][j]));
-                text.setEditable(false);
-                text.setFocusTraversable(false);
-                text.setAlignment(Pos.CENTER);
-                text.setPrefWidth(30);
-                text.setMinWidth(50);
-                transposeResultGrid.add(text, j, i);
+            double[][] mat = MatrixOperations.ArrayToMatrix(matrix, rows, cols);
+            double[][] result = MatrixOperations.Transpose(mat, rows, cols);
+            for (int j = 0; j < rows; j++) {
+                for (int i = 0; i < cols; i++) {
+                    TextField text = new TextField(String.format("%.2f", result[i][j]));
+                    text.setEditable(false);
+                    text.setFocusTraversable(false);
+                    text.setAlignment(Pos.CENTER);
+                    text.setPrefWidth(30);
+                    text.setMinWidth(50);
+                    transposeResultGrid.add(text, j, i);
+                }
             }
         }
-
     }
 
     void setSingleMatrixAction(SingleMatrixApp set){
@@ -255,47 +261,48 @@ public class MatrixCalculatorController {
     }
 
     private int getAdditionRows(){
-        return (int) additionRows.getValue();
+        return Integer.parseInt(additionRows.getValue().toString());
     }
 
     private int getAdditionColumns(){
-        return (int) additionColumns.getValue();
+        return Integer.parseInt(additionColumns.getValue().toString());
     }
 
     private int getMultiplicationARows(){
-        return (int) multiplicationARows.getValue();
+        return Integer.parseInt(multiplicationARows.getValue().toString());
     }
 
     private int getMultiplicationAColumns(){
-        return (int) multiplicationAColumns.getValue();
+        return Integer.parseInt(multiplicationAColumns.getValue().toString());
     }
 
     private int getMultiplicationBColumns(){
-        return (int) multiplicationBColumns.getValue();
+        return Integer.parseInt(multiplicationBColumns.getValue().toString());
     }
 
     private int getTransposeRows(){
-        return (int) transposeRows.getValue();
+        return Integer.parseInt(transposeRows.getValue().toString());
     }
 
     private int getTransposeColumns(){
-        return (int) transposeColumns.getValue();
+        return Integer.parseInt(transposeColumns.getValue().toString());
     }
 
     private int getDeterminantDimension(){
-        return (int) determinantDimension.getValue();
+        return Integer.parseInt(determinantDimension.getValue().toString());
     }
 
     private int getInverseDimension(){
-        return (int) inverseDimension.getValue();
+        return Integer.parseInt(inverseDimension.getValue().toString());
     }
 
     private int getGaussRows(){
-        return (int) gaussRows.getValue();
+        return Integer.parseInt(gaussRows.getValue().toString());
     }
 
     private int getGaussColumns(){
-        return (int) gaussColumns.getValue();
+        return Integer.parseInt(gaussColumns.getValue().toString());
     }
+
 }
 

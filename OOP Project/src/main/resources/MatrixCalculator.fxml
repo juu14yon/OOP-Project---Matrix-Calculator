@@ -41,7 +41,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -56,36 +55,6 @@
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
             <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
@@ -124,7 +93,7 @@
                                                       <Font name="Century Gothic" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="additionRows" prefWidth="150.0" GridPane.columnIndex="1">
+                                                <ChoiceBox fx:id="additionRows" prefWidth="150.0" value="1" GridPane.columnIndex="1">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -139,7 +108,7 @@
                                                         </FXCollections>
                                                     </items>
                                                 </ChoiceBox>
-                                                <ChoiceBox fx:id="additionColumns" prefWidth="150.0" GridPane.columnIndex="3">
+                                                <ChoiceBox fx:id="additionColumns" prefWidth="150.0" value="1" GridPane.columnIndex="3">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -231,7 +200,7 @@
                                                       <Font name="Century Gothic" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="multiplicationARows" prefWidth="150.0" GridPane.columnIndex="1">
+                                                <ChoiceBox fx:id="multiplicationARows" prefWidth="150.0" value="1" GridPane.columnIndex="1">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -246,7 +215,7 @@
                                                         </FXCollections>
                                                     </items>
                                                 </ChoiceBox>
-                                                <ChoiceBox fx:id="multiplicationBRows" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <ChoiceBox fx:id="multiplicationBRows" prefWidth="150.0" value="1" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -261,7 +230,7 @@
                                                         </FXCollections>
                                                     </items>
                                                 </ChoiceBox>
-                                                <ChoiceBox fx:id="multiplicationAColumns" prefWidth="150.0" GridPane.columnIndex="3">
+                                                <ChoiceBox fx:id="multiplicationAColumns" prefWidth="150.0" value="1" GridPane.columnIndex="3">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -276,7 +245,7 @@
                                                         </FXCollections>
                                                     </items>
                                                 </ChoiceBox>
-                                                <ChoiceBox fx:id="multiplicationBColumns" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                <ChoiceBox fx:id="multiplicationBColumns" prefWidth="150.0" value="1" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -373,7 +342,7 @@
                                                       <Font name="Century Gothic" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="transposeRows" prefWidth="150.0" GridPane.columnIndex="1">
+                                                <ChoiceBox fx:id="transposeRows" prefWidth="150.0" value="1" GridPane.columnIndex="1">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -388,7 +357,7 @@
                                                         </FXCollections>
                                                     </items>
                                                 </ChoiceBox>
-                                                <ChoiceBox fx:id="transposeColumns" prefWidth="150.0" GridPane.columnIndex="3">
+                                                <ChoiceBox fx:id="transposeColumns" prefWidth="150.0" value="1" GridPane.columnIndex="3">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -473,7 +442,7 @@
                                                       <Font name="Century Gothic" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="determinantDimension" prefWidth="150.0" GridPane.columnIndex="1">
+                                                <ChoiceBox fx:id="determinantDimension" prefWidth="150.0" value="1" GridPane.columnIndex="1">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -545,7 +514,7 @@
                                                       <Font name="Century Gothic" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="inverseDimension" prefWidth="150.0" GridPane.columnIndex="1">
+                                                <ChoiceBox fx:id="inverseDimension" prefWidth="150.0" value="1" GridPane.columnIndex="1">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -628,7 +597,7 @@
                                                       <Font name="Century Gothic" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="gaussRows" prefWidth="150.0" GridPane.columnIndex="1">
+                                                <ChoiceBox fx:id="gaussRows" prefWidth="150.0" value="1" GridPane.columnIndex="1">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
@@ -643,7 +612,7 @@
                                                         </FXCollections>
                                                     </items>
                                                 </ChoiceBox>
-                                                <ChoiceBox fx:id="gaussColumns" prefWidth="150.0" GridPane.columnIndex="3">
+                                                <ChoiceBox fx:id="gaussColumns" prefWidth="150.0" value="1" GridPane.columnIndex="3">
                                                     <items>
                                                         <FXCollections fx:factory="observableArrayList">
                                                             <Integer fx:value="1" />
