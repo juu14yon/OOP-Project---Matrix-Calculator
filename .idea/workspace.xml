@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f75d0163-359c-4bc2-a7b0-941dff9373fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/build/classes/java/main/MatrixCalculatorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/build/classes/java/main/MatrixCalculatorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/build/classes/java/main/MatrixOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/build/classes/java/main/MatrixOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/build/resources/main/MatrixCalculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/build/resources/main/MatrixCalculator.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorMainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorMainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP Project/src/main/resources/MatrixCalculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/resources/MatrixCalculator.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +129,7 @@
       <workItem from="1620557008894" duration="5565000" />
       <workItem from="1620634872310" duration="20683000" />
       <workItem from="1620895850190" duration="592000" />
-      <workItem from="1620982433890" duration="3239000" />
+      <workItem from="1620982433890" duration="3596000" />
     </task>
     <servers />
   </component>

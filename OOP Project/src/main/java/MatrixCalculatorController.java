@@ -9,11 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-<<<<<<< HEAD
-=======
 import java.math.BigDecimal;
 import java.util.ArrayList;
->>>>>>> fa7a1f073d8164f532a12d36d623080dbf843197
 import java.util.Arrays;
 
 public class MatrixCalculatorController {
