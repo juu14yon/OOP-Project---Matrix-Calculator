@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f75d0163-359c-4bc2-a7b0-941dff9373fd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP Project/src/main/java/MatrixCalculatorController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +75,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TipCalculator" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -129,7 +130,8 @@
       <workItem from="1620557008894" duration="5565000" />
       <workItem from="1620634872310" duration="20683000" />
       <workItem from="1620895850190" duration="592000" />
-      <workItem from="1620982433890" duration="3596000" />
+      <workItem from="1620982433890" duration="5990000" />
+      <workItem from="1621238441884" duration="1129000" />
     </task>
     <servers />
   </component>

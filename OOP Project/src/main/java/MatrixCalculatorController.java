@@ -192,7 +192,7 @@ public class MatrixCalculatorController {
             if(MatrixOperations.inverse(mat, inv, size)){
                 for (int j = 0; j<size; j++){
                     for(int i=0; i<size; i++){
-                        TextField text = new TextField(String. format("%.3f",inv[j][i]));
+                        TextField text = new TextField(String. format("%.3f",inv[i][j]));
                         text.setEditable(false);
                         text.setFocusTraversable(false);
                         text.setAlignment(Pos.CENTER);
