@@ -143,6 +143,8 @@ public class MatrixCalculatorController {
 
     @FXML
     void gaussSetMatrixButtonPressed(ActionEvent event) {
+        gaussResultGrid.getChildren().clear();
+        gaussErrorMessage.setText("");
         SingleMatrixApp setting = new SingleMatrixApp(getGaussRows(), getGaussColumns());
         setSingleMatrixAction(setting);
 
@@ -186,36 +188,21 @@ public class MatrixCalculatorController {
 
     @FXML
     void inverseSetSquareMatrixButtonPressed(ActionEvent event) {
+        inverseResultGrid.getChildren().clear();
+        inverseErrorMessage.setText("");
         SingleMatrixApp setting = new SingleMatrixApp(getInverseDimension(), getInverseDimension());
         setSingleMatrixAction(setting);
 
-<<<<<<< HEAD
-        matrix = setting.getSingleMatrix();
-        int size = (int)Math.sqrt(matrix.length);
-        int[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
-        float[][] inv = new float[size][size];
-        try {
-            if(MatrixOperations.inverse(mat, inv, size)){
-                for (int j = 0; j<size; j++){
-                    for(int i=0; i<size; i++){
-                        TextField text = new TextField(String. format("%.3f",inv[i][j]));
-                        text.setEditable(false);
-                        text.setFocusTraversable(false);
-                        text.setAlignment(Pos.CENTER);
-                        text.setPrefWidth(30);
-                        text.setMinWidth(50);
-                        inverseResultGrid.add(text, j, i);
-=======
-        if(!setting.wasStageCanceled()) {
+        if (!setting.wasStageCanceled()){
             matrix = setting.getSingleMatrix();
-            int size = (int) Math.sqrt(matrix.length);
+            int size = (int)Math.sqrt(matrix.length);
             double[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
             double[][] inv = new double[size][size];
             try {
                 if (MatrixOperations.inverse(mat, inv, size)) {
                     for (int j = 0; j < size; j++) {
                         for (int i = 0; i < size; i++) {
-                            TextField text = new TextField(String.format("%.3f", inv[j][i]));
+                            TextField text = new TextField(String.format("%.3f", inv[i][j]));
                             text.setEditable(false);
                             text.setFocusTraversable(false);
                             text.setAlignment(Pos.CENTER);
@@ -223,7 +210,7 @@ public class MatrixCalculatorController {
                             text.setMinWidth(50);
                             inverseResultGrid.add(text, j, i);
                         }
->>>>>>> e052aac1062f43f584ce8286d031826e74e277a6
+
                     }
                 } else {
                     inverseErrorMessage.setText("Singular matrix, can't find its inverse");
@@ -233,7 +220,6 @@ public class MatrixCalculatorController {
             }
         }
     }
-
     @FXML
     void transposeSetMatrixButtonPressed(ActionEvent event) {
         SingleMatrixApp setting = new SingleMatrixApp(getTransposeRows(), getTransposeColumns());
