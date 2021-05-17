@@ -2,10 +2,8 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -22,6 +20,7 @@ public class MatrixCalculatorController {
     @FXML private ChoiceBox<?> additionColumns;
     @FXML private Button additionSetMatricesButton;
     @FXML private GridPane additionResultGrid;
+    @FXML private AnchorPane additionAnchorPane;
 
     @FXML private ChoiceBox<?> multiplicationARows;
     @FXML private ChoiceBox<?> multiplicationBRows;
@@ -30,33 +29,43 @@ public class MatrixCalculatorController {
     @FXML private Button multiplicationSetMatricesButton;
     @FXML private Label multiplicationErrorMessage;
     @FXML private GridPane multiplicationResultGrid;
+    @FXML private AnchorPane multiplicationAnchorPane;
 
     @FXML private ChoiceBox<?> transposeRows;
     @FXML private ChoiceBox<?> transposeColumns;
     @FXML private Button transposeSetMatrixButton;
     @FXML private GridPane transposeResultGrid;
+    @FXML private AnchorPane transposeAnchorPane;
 
     @FXML private Label determinantResult;
     @FXML private ChoiceBox<?> determinantDimension;
     @FXML private Button determinantSetSquareMatrixButton;
+    @FXML private AnchorPane determinantAnchorPane;
 
     @FXML private ChoiceBox<?> inverseDimension;
     @FXML private Button inverseSetSquareMatrixButton;
     @FXML private GridPane inverseResultGrid;
     @FXML private Label inverseErrorMessage;
+    @FXML private AnchorPane inverseAnchorPane;
 
     @FXML private ChoiceBox<?> gaussRows;
     @FXML private ChoiceBox<?> gaussColumns;
     @FXML private Button gaussSetMatrixButton;
     @FXML private GridPane gaussResultGrid;
     @FXML private Label gaussErrorMessage;
+    @FXML private AnchorPane gaussAnchorPane;
 
     @FXML
     void additionSetMatricesButtonPressed(ActionEvent event) {
+        additionResultGrid.getChildren().clear();
+        additionAnchorPane.setStyle("-fx-background-color:#f4f4f4;");
+
         TwoMatricesApp setting = new TwoMatricesApp(getAdditionRows(), getAdditionColumns(), getAdditionRows(), getAdditionColumns());
         setTwoMatricesAction(setting);
 
         if(!setting.wasStageCanceled()) {
+            additionAnchorPane.setStyle("-fx-background-color:#b9ff96;");
+
             matrixA = setting.getMatrixA();
             matrixB = setting.getMatrixB();
 
@@ -79,6 +88,9 @@ public class MatrixCalculatorController {
 
     @FXML
     void multiplicationSetMatricesButtonPressed(ActionEvent event) {
+        multiplicationResultGrid.getChildren().clear();
+        multiplicationAnchorPane.setStyle("-fx-background-color:#f4f4f4;");
+
         if(getMultiplicationAColumns()!=Integer.parseInt(multiplicationBRows.getValue().toString())){
             multiplicationBRows.requestFocus();
             multiplicationErrorMessage.setText("dim(columns) of A must be equal to dim(rows) of B");
@@ -89,6 +101,8 @@ public class MatrixCalculatorController {
             setTwoMatricesAction(setting);
 
             if(!setting.wasStageCanceled()) {
+                multiplicationAnchorPane.setStyle("-fx-background-color:#b9ff96;");
+
                 matrixA = setting.getMatrixA();
                 matrixB = setting.getMatrixB();
                 int rowsA = getMultiplicationARows();
@@ -129,10 +143,15 @@ public class MatrixCalculatorController {
 
     @FXML
     void determinantSetSquareMatrixButtonPressed(ActionEvent event) {
+        determinantResult.setText("");
+        determinantAnchorPane.setStyle("-fx-background-color:#f4f4f4;");
+
         SingleMatrixApp setting = new SingleMatrixApp(getDeterminantDimension(), getDeterminantDimension());
         setSingleMatrixAction(setting);
 
         if(!setting.wasStageCanceled()) {
+            determinantAnchorPane.setStyle("-fx-background-color:#b9ff96;");
+
             matrix = setting.getSingleMatrix();
 
             double[][] mat = MatrixOperations.ArrayToSquareMatrix(matrix);
@@ -143,8 +162,10 @@ public class MatrixCalculatorController {
 
     @FXML
     void gaussSetMatrixButtonPressed(ActionEvent event) {
+        gaussAnchorPane.setStyle("-fx-background-color:#f4f4f4;");
         gaussResultGrid.getChildren().clear();
         gaussErrorMessage.setText("");
+
         SingleMatrixApp setting = new SingleMatrixApp(getGaussRows(), getGaussColumns());
         setSingleMatrixAction(setting);
 
@@ -155,7 +176,10 @@ public class MatrixCalculatorController {
             double[][] mat = MatrixOperations.DoubleArrayToMatrix(matrix, rows, cols);
             if (cols <= rows) {
                 gaussErrorMessage.setText("The system is inconsistent");
+                gaussAnchorPane.setStyle("-fx-background-color:#ff9696;");
             } else {
+                gaussAnchorPane.setStyle("-fx-background-color:#b9ff96;");
+
                 double[][] matA = MatrixOperations.GetMatrixA(mat, rows, cols);
                 double[] matB = MatrixOperations.GetMatrixB(mat, rows, cols);
 
@@ -188,8 +212,10 @@ public class MatrixCalculatorController {
 
     @FXML
     void inverseSetSquareMatrixButtonPressed(ActionEvent event) {
+        inverseAnchorPane.setStyle("-fx-background-color:#f4f4f4;");
         inverseResultGrid.getChildren().clear();
         inverseErrorMessage.setText("");
+
         SingleMatrixApp setting = new SingleMatrixApp(getInverseDimension(), getInverseDimension());
         setSingleMatrixAction(setting);
 
@@ -200,6 +226,8 @@ public class MatrixCalculatorController {
             double[][] inv = new double[size][size];
             try {
                 if (MatrixOperations.inverse(mat, inv, size)) {
+                    inverseAnchorPane.setStyle("-fx-background-color:#b9ff96;");
+
                     for (int j = 0; j < size; j++) {
                         for (int i = 0; i < size; i++) {
                             TextField text = new TextField(String.format("%.3f", inv[i][j]));
@@ -214,18 +242,25 @@ public class MatrixCalculatorController {
                     }
                 } else {
                     inverseErrorMessage.setText("Singular matrix, can't find its inverse");
+                    inverseAnchorPane.setStyle("-fx-background-color:#ff9696;");
                 }
             } catch (Exception e) {
                 inverseErrorMessage.setText("Inverse matrix doesn't exist");
+                inverseAnchorPane.setStyle("-fx-background-color:#ff9696;");
             }
         }
     }
     @FXML
     void transposeSetMatrixButtonPressed(ActionEvent event) {
+        transposeResultGrid.getChildren().clear();
+        transposeAnchorPane.setStyle("-fx-background-color:#f4f4f4;");
+
         SingleMatrixApp setting = new SingleMatrixApp(getTransposeRows(), getTransposeColumns());
         setSingleMatrixAction(setting);
 
         if(!setting.wasStageCanceled()) {
+            transposeAnchorPane.setStyle("-fx-background-color:#b9ff96;");
+
             matrix = setting.getSingleMatrix();
             int rows = getTransposeRows();
             int cols = getTransposeColumns();

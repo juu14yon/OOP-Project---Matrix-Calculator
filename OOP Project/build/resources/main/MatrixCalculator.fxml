@@ -144,7 +144,7 @@
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="318.0">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                          <AnchorPane fx:id="additionAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
@@ -165,6 +165,9 @@
                                              </children>
                                           </AnchorPane>
                                        </content>
+                                       <padding>
+                                          <Insets bottom="4.0" right="4.0" />
+                                       </padding>
                                     </ScrollPane>
                                 </items>
                               </SplitPane>
@@ -291,7 +294,7 @@
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                          <AnchorPane fx:id="multiplicationAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
@@ -313,6 +316,9 @@
                                              </children>
                                           </AnchorPane>
                                        </content>
+                                       <padding>
+                                          <Insets bottom="4.0" right="4.0" />
+                                       </padding>
                                     </ScrollPane>
                                  </items>
                               </SplitPane>
@@ -397,7 +403,7 @@
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                          <AnchorPane fx:id="transposeAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
@@ -419,6 +425,9 @@
                                              </children>
                                           </AnchorPane>
                                        </content>
+                                       <padding>
+                                          <Insets bottom="4.0" right="4.0" />
+                                       </padding>
                                     </ScrollPane>
                                  </items>
                               </SplitPane>
@@ -481,7 +490,7 @@
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                          <AnchorPane fx:id="determinantAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
@@ -561,7 +570,7 @@
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                          <AnchorPane fx:id="inverseAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
@@ -586,6 +595,9 @@
                                                    </font>
                                                 </Label>
                                              </children>
+                                             <padding>
+                                                <Insets bottom="4.0" right="4.0" />
+                                             </padding>
                                           </AnchorPane>
                                        </content>
                                     </ScrollPane>
@@ -672,7 +684,7 @@
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                          <AnchorPane fx:id="gaussAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
@@ -699,6 +711,9 @@
                                              </children>
                                           </AnchorPane>
                                        </content>
+                                       <padding>
+                                          <Insets bottom="4.0" right="4.0" />
+                                       </padding>
                                     </ScrollPane>
                                  </items>
                               </SplitPane>
