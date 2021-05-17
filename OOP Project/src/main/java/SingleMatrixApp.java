@@ -11,13 +11,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.ArrayList;
 
 public class SingleMatrixApp extends Application {
+    private boolean stageCanceled = false;
     private final int rows;
     private final int cols;
-    private int[] entries;
+    private double[] entries;
     private Label emptyMessage = new Label("");
     ArrayList<TextField> fields = new ArrayList<>();
 
@@ -36,6 +38,7 @@ public class SingleMatrixApp extends Application {
         VBox box = new VBox();
         Label label = new Label("Fill in your Matrix: ");
         Button button = new Button("Continue");
+        Button cancelButton = new Button("Close");
 
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(12));
@@ -66,26 +69,35 @@ public class SingleMatrixApp extends Application {
             }
         });
 
-        box.getChildren().addAll(label, grid, button, emptyMessage);
+        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stageCanceled = true;
+                primaryStage.close();
+            }
+        });
+
+        box.getChildren().addAll(label, grid, button, emptyMessage, cancelButton);
 
         Scene scene = new Scene(box);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Creating Matrix");
         primaryStage.setScene(scene);
         primaryStage.showAndWait();
     }
 
-    int[] getSingleMatrix(){
+    double[] getSingleMatrix(){
         return entries;
     }
 
 
     boolean buttonPressed(){
-        entries = new int[rows*cols];
+        entries = new double[rows*cols];
 
         for (int i = 0; i < rows*cols; i++) {
             try{
-                entries[i] = Integer.parseInt(fields.get(i).getText());
+                entries[i] = Double.parseDouble(fields.get(i).getText());
             }
             catch (NumberFormatException ex){
                 fields.get(i).requestFocus();
@@ -94,5 +106,9 @@ public class SingleMatrixApp extends Application {
             }
         }
         return true;
+    }
+
+    boolean wasStageCanceled(){
+        return stageCanceled;
     }
 }

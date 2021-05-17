@@ -2,10 +2,10 @@ import java.util.Arrays;
 
 public class MatrixOperations {
 
-    static int[][] ArrayToSquareMatrix(int[] matrix){
-        int[][] result = {};
+    static double[][] ArrayToSquareMatrix(double[] matrix){
+        double[][] result = {};
         for (int i = 0; i<Math.sqrt(matrix.length);i++){
-            int[] row = {};
+            double[] row = {};
             for (int j = 0; j<=Math.sqrt(matrix.length)-1; j++){
                 row = Arrays.copyOf(row, row.length + 1);
                 row[row.length-1] = matrix[(int) (j+Math.sqrt(matrix.length)*i)];
@@ -39,10 +39,10 @@ public class MatrixOperations {
     }
 
 
-    static int[][] Transpose(int[][] mat, int rows, int cols){
-        int[][] result = {};
+    static double[][] Transpose(double[][] mat, int rows, int cols){
+        double[][] result = {};
         for(int i = 0; i < cols; i++){
-            int[] row = {};
+            double[] row = {};
             for(int j = 0; j < rows; j++){
                 row = Arrays.copyOf(row, row.length + 1);
                 row[row.length-1] = mat[j][i];
@@ -53,10 +53,10 @@ public class MatrixOperations {
         return result;
     }
 
-    static int[][] ArrayToMatrix(int[] matrix, int rows, int cols){
-        int[][] result = {};
+    static double[][] ArrayToMatrix(double[] matrix, int rows, int cols){
+        double[][] result = {};
         for (int j = 0; j<rows;j++){
-            int[] row = {};
+            double[] row = {};
             int i = 0;
             while (i<cols) {
                 row = Arrays.copyOf(row, row.length + 1);
@@ -69,7 +69,7 @@ public class MatrixOperations {
         return result;
     }
 
-    static double[][] DoubleArrayToMatrix(int[] matrix, int rows, int cols){
+    static double[][] DoubleArrayToMatrix(double[] matrix, int rows, int cols){
         double[][] result = {};
         for (int j = 0; j<rows;j++){
             double[] row = {};
@@ -83,7 +83,7 @@ public class MatrixOperations {
         return result;
     }
 
-    static void getCofactor(int[][] mat, int[][] temp,
+    static void getCofactor(double[][] mat, double[][] temp,
                             int p, int q, int n)
     {
         int i = 0, j = 0;
@@ -115,7 +115,7 @@ public class MatrixOperations {
 
     /* Recursive function for finding determinant
     of matrix. n is current dimension of mat[][]. */
-    static int determinantOfMatrix(int[][] mat, int n)
+    static double determinantOfMatrix(double[][] mat, int n)
     {
         int D = 0; // Initialize result
 
@@ -125,7 +125,7 @@ public class MatrixOperations {
             return mat[0][0];
 
         // To store cofactors
-        int[][] temp = new int[n][n];
+        double[][] temp = new double[n][n];
 
         // To store sign multiplier
         int sign = 1;
@@ -146,7 +146,7 @@ public class MatrixOperations {
         return D;
     }
 
-    static void adjoin(int[][] A, int [][]adj, int n)
+    static void adjoin(double[][] A, double [][]adj, int n)
     {
         if (n == 1)
         {
@@ -156,7 +156,7 @@ public class MatrixOperations {
 
         // temp is used to store cofactors of A[][]
         int sign;
-        int [][]temp = new int[n][n];
+        double[][] temp = new double[n][n];
 
         for (int i = 0; i < n; i++)
         {
@@ -176,10 +176,10 @@ public class MatrixOperations {
         }
     }
 
-    static boolean inverse(int[][] A, float[][] inverse, int n)
+    static boolean inverse(double[][] A, double[][] inverse, int n)
     {
         // Find determinant of A[][]
-        int det = determinantOfMatrix(A, n);
+        double det = determinantOfMatrix(A, n);
         if (det == 0)
         {
             System.out.print("Singular matrix, can't find its inverse");
@@ -187,7 +187,7 @@ public class MatrixOperations {
         }
 
         // Find adjoin
-        int [][]adj = new int[n][n];
+        double[][] adj = new double[n][n];
         adjoin(A, adj, n);
 
         // Find Inverse using formula "inverse(A) = adj(A)/det(A)"

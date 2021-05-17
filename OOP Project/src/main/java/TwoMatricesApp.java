@@ -15,12 +15,13 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class TwoMatricesApp extends Application {
+    private boolean stageCanceled = false;
     private final int aRows;
     private final int aCols;
     private final int bRows;
     private final int bCols;
-    private int[] aEntries;
-    private int[] bEntries;
+    private double[] aEntries;
+    private double[] bEntries;
     private Label emptyMessage = new Label("");
     ArrayList<TextField> aFields = new ArrayList<>();
     ArrayList<TextField> bFields = new ArrayList<>();
@@ -44,6 +45,7 @@ public class TwoMatricesApp extends Application {
         Label aLabel = new Label("Fill in your Matrix A: ");
         Label bLabel = new Label("Fill in your Matrix B: ");
         Button button = new Button("Continue");
+        Button cancelButton = new Button("Close");
 
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(12));
@@ -89,7 +91,16 @@ public class TwoMatricesApp extends Application {
             }
         });
 
-        box.getChildren().addAll(aLabel, aGrid, bLabel, bGrid, button, emptyMessage);
+        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stageCanceled = true;
+                primaryStage.close();
+            }
+        });
+
+
+        box.getChildren().addAll(aLabel, aGrid, bLabel, bGrid, button, emptyMessage, cancelButton);
 
         Scene scene = new Scene(box);
         primaryStage.setResizable(false);
@@ -98,19 +109,19 @@ public class TwoMatricesApp extends Application {
         primaryStage.showAndWait();
     }
 
-    int[] getMatrixA(){
+    double[] getMatrixA(){
         return aEntries;
     }
-    int[] getMatrixB() { return bEntries; }
+    double[] getMatrixB() { return bEntries; }
 
 
     boolean buttonPressed(){
-        aEntries = new int[aRows*aCols];
-        bEntries = new int[bRows*bCols];
+        aEntries = new double[aRows*aCols];
+        bEntries = new double[bRows*bCols];
 
         for (int i = 0; i < aRows*aCols; i++) {
             try{
-                aEntries[i] = Integer.parseInt(aFields.get(i).getText());
+                aEntries[i] = Double.parseDouble(aFields.get(i).getText());
             }
             catch (NumberFormatException ex){
                 aFields.get(i).requestFocus();
@@ -121,7 +132,7 @@ public class TwoMatricesApp extends Application {
 
         for (int i = 0; i < bRows*bCols; i++) {
             try{
-                bEntries[i] = Integer.parseInt(bFields.get(i).getText());
+                bEntries[i] = Double.parseDouble(bFields.get(i).getText());
             }
             catch (NumberFormatException ex){
                 bFields.get(i).requestFocus();
@@ -130,6 +141,10 @@ public class TwoMatricesApp extends Application {
             }
         }
         return true;
+    }
+
+    boolean wasStageCanceled(){
+        return stageCanceled;
     }
 }
 
