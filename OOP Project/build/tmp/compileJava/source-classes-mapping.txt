@@ -1,7 +1,14 @@
-TipCalculatorController.java
- TipCalculatorController
- TipCalculatorController$1
+MatrixOperations.java
+ MatrixOperations
 MatrixCalculatorMainApp.java
  MatrixCalculatorMainApp
+SingleMatrixApp.java
+ SingleMatrixApp
+ SingleMatrixApp$1
+ SingleMatrixApp$2
+TwoMatricesApp.java
+ TwoMatricesApp
+ TwoMatricesApp$1
+ TwoMatricesApp$2
 MatrixCalculatorController.java
  MatrixCalculatorController
