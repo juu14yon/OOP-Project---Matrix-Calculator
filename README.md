@@ -9,6 +9,19 @@ It is a matrix calculator that can performs 6 operations: addition and multiplic
 
 **Software Requirements:** jdk ver.15.0.2; javafx ver.16
 
+**Instalation Requirements:** Open project folder in your IDE, then add javafx libraries and VM-options 
+
+**Planned Features:** addition and multiplication of matrices; finding transpose, inverse, determinant and solution of system of equation through Gauss elimination
+add javafx libraries and VM-options
+
+**Planned Features:** All planned features were added
+- Addition 
+- Multiplication of matrices
+- Finding transpose
+- Inverse
+- Determinant 
+- Solution of system of equation through Gauss elimination
+
 **GUI app screenshots.**
 
 Example of addition:
