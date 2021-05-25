@@ -25,9 +25,10 @@ It is a matrix calculator that can performs 6 operations: addition and multiplic
 
 Example of addition:
 
-![Webp net-gifmaker](https://user-images.githubusercontent.com/75063827/119232860-7f236e80-bb48-11eb-9fbc-6cf322fff847.gif)
+![Webp net-gifmaker (2)](https://user-images.githubusercontent.com/75063827/119564293-704bee80-bdca-11eb-9ab3-ba7dce600fc7.gif)
 
 
 Example of inverse:
 
-![Webp net-gifmaker (1)](https://user-images.githubusercontent.com/75063827/119232865-834f8c00-bb48-11eb-920c-7a9a7d0e94cd.gif)
+![Webp net-gifmaker (3)](https://user-images.githubusercontent.com/75063827/119564315-75a93900-bdca-11eb-8fe3-b40899726601.gif)
+
