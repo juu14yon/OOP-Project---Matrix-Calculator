@@ -43,8 +43,11 @@ public class SingleMatrixApp extends Application {
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(12));
         box.setSpacing(8);
+        box.setStyle("-fx-font-family: Verdana Pro Light;");
 
-        label.setFont(new Font("Century Gothic", 14));
+        label.setFont(new Font("Verdana Pro Light", 14));
+        emptyMessage.setFont(new Font("Verdana Pro Light", 14));
+        emptyMessage.setStyle("-fx-text-fill:#c30a0a");
 
         grid.setHgap(5);
         grid.setVgap(2);

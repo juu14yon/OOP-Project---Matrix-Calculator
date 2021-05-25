@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.ArrayList;
 
@@ -50,9 +51,12 @@ public class TwoMatricesApp extends Application {
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(12));
         box.setSpacing(8);
+        box.setStyle("-fx-font-family: Verdana Pro Light;");
 
-        aLabel.setFont(new Font("Century Gothic", 14));
-        bLabel.setFont(new Font("Century Gothic", 14));
+        aLabel.setFont(new Font("Verdana Pro Light", 14));
+        bLabel.setFont(new Font("Verdana Pro Light", 14));
+        emptyMessage.setFont(new Font("Verdana Pro Light", 14));
+        emptyMessage.setStyle("-fx-text-fill:#c30a0a");
 
         aGrid.setHgap(5);
         aGrid.setVgap(2);
@@ -104,6 +108,7 @@ public class TwoMatricesApp extends Application {
 
         Scene scene = new Scene(box);
         primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Creating Matrices");
         primaryStage.setScene(scene);
         primaryStage.showAndWait();

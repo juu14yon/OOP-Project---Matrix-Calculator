@@ -38,9 +38,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -52,28 +49,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" minHeight="-Infinity" pickOnBounds="false" prefHeight="250.0" prefWidth="640.0" scaleShape="false" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MatrixCalculatorController">
+<VBox maxHeight="-Infinity" minHeight="-Infinity" pickOnBounds="false" prefHeight="258.0" prefWidth="640.0" scaleShape="false" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MatrixCalculatorController">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="250.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <TabPane prefHeight="225.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="260.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Addition">
+                <Tab style="-fx-font-family: &quot;Verdana Pro Light&quot;;" text="Addition">
                   <content>
                     <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
                            <children>
-                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="230.0" prefWidth="640.0">
                                 <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="315.0">
                                        <children>
                                           <GridPane hgap="4.0" layoutY="34.0" prefWidth="231.0">
                                              <columnConstraints>
@@ -91,7 +79,7 @@
                                              <children>
                                                 <Label text="Matrix A/B:">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox fx:id="additionRows" prefWidth="150.0" value="1" GridPane.columnIndex="1">
@@ -126,7 +114,7 @@
                                                 </ChoiceBox>
                                                 <Label text="X" GridPane.columnIndex="2">
                                                    <font>
-                                                      <Font name="Century Gothic" size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -136,25 +124,28 @@
                                                 <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                              </padding>
                                              <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="Verdana Pro Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="additionSetMatricesButton" layoutX="12.0" layoutY="92.0" mnemonicParsing="false" onAction="#additionSetMatricesButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrices" />
+                                          <Button fx:id="additionSetMatricesButton" layoutX="12.0" layoutY="92.0" mnemonicParsing="false" onAction="#additionSetMatricesButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrices">
+                                             <font>
+                                                <Font name="Verdana Pro Light" size="12.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="318.0">
                                        <content>
-                                          <AnchorPane fx:id="additionAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
+                                          <AnchorPane fx:id="additionAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
                                                       <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                                    </padding>
                                                    <font>
-                                                      <Font name="System Bold" size="14.0" />
+                                                      <Font name="Verdana Pro Semibold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <GridPane fx:id="additionResultGrid" alignment="CENTER" hgap="2.0" layoutX="14.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="2.0">
+                                                <GridPane fx:id="additionResultGrid" alignment="CENTER" hgap="2.0" layoutX="14.0" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-family: &quot;Verdana Pro Light&quot;;" vgap="2.0">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                    </columnConstraints>
@@ -175,11 +166,11 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Multiplication">
+                <Tab style="-fx-font-family: &quot;Verdana Pro Light&quot;;" text="Multiplication">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="230.0" prefWidth="640.0">
                                  <items>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                        <children>
@@ -200,12 +191,12 @@
                                              <children>
                                                 <Label text="Matrix A:">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <Label text="Matrix B:" GridPane.rowIndex="1">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox fx:id="multiplicationARows" prefWidth="150.0" value="1" GridPane.columnIndex="1">
@@ -270,41 +261,47 @@
                                                 </ChoiceBox>
                                                 <Label text="X" GridPane.columnIndex="2">
                                                    <font>
-                                                      <Font name="Century Gothic" size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <Label text="X" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                    <font>
-                                                      <Font name="Century Gothic" size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                              </children>
                                           </GridPane>
-                                          <Label text="Set matrices sizes: ">
+                                          <Label text="Set matrices sizes: " AnchorPane.topAnchor="0.0">
                                              <padding>
                                                 <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                              </padding>
                                              <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="Verdana Pro Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="multiplicationSetMatricesButton" layoutX="12.0" layoutY="126.0" mnemonicParsing="false" onAction="#multiplicationSetMatricesButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrices" />
-                                          <Label fx:id="multiplicationErrorMessage" layoutX="14.0" layoutY="161.0" textFill="#c30a0a" />
+                                          <Button fx:id="multiplicationSetMatricesButton" layoutX="12.0" layoutY="126.0" mnemonicParsing="false" onAction="#multiplicationSetMatricesButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrices">
+                                             <font>
+                                                <Font name="Verdana Pro Light" size="12.0" />
+                                             </font></Button>
+                                          <Label fx:id="multiplicationErrorMessage" layoutX="14.0" layoutY="161.0" textFill="#c30a0a">
+                                             <font>
+                                                <Font name="Verdana Pro Light" size="12.0" />
+                                             </font></Label>
                                        </children>
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane fx:id="multiplicationAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
+                                          <AnchorPane fx:id="multiplicationAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
                                                       <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                                    </padding>
                                                    <font>
-                                                      <Font name="System Bold" size="14.0" />
+                                                      <Font name="Verdana Pro Semibold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <GridPane fx:id="multiplicationResultGrid" hgap="2.0" layoutX="14.0" layoutY="41.0" vgap="2.0">
+                                                <GridPane fx:id="multiplicationResultGrid" hgap="2.0" layoutX="14.0" layoutY="41.0" style="-fx-font-family: &quot;Verdana Pro Light&quot;;" vgap="2.0">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
@@ -326,11 +323,11 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Transpose">
+                  <Tab style="-fx-font-family: &quot;Verdana Pro Light&quot;;" text="Transpose">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="230.0" prefWidth="640.0">
                                  <items>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                        <children>
@@ -350,7 +347,7 @@
                                              <children>
                                                 <Label text="Matrix:">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox fx:id="transposeRows" prefWidth="150.0" value="1" GridPane.columnIndex="1">
@@ -385,7 +382,7 @@
                                                 </ChoiceBox>
                                                 <Label text="X" GridPane.columnIndex="2">
                                                    <font>
-                                                      <Font name="Century Gothic" size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -395,25 +392,28 @@
                                                 <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                              </padding>
                                              <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="Verdana Pro Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="transposeSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#transposeSetMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                          <Button fx:id="transposeSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#transposeSetMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix">
+                                             <font>
+                                                <Font name="Verdana Pro Light" size="12.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane fx:id="transposeAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
+                                          <AnchorPane fx:id="transposeAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
                                                       <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                                    </padding>
                                                    <font>
-                                                      <Font name="System Bold" size="14.0" />
+                                                      <Font name="Verdana Pro Semibold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <GridPane fx:id="transposeResultGrid" hgap="2.0" layoutX="14.0" layoutY="41.0" vgap="2.0">
+                                                <GridPane fx:id="transposeResultGrid" hgap="2.0" layoutX="14.0" layoutY="41.0" style="-fx-font-family: &quot;Verdana Pro Light&quot;;" vgap="2.0">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
@@ -435,11 +435,11 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Determinant">
+                  <Tab style="-fx-font-family: &quot;Verdana Pro Light&quot;;" text="Determinant">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="230.0" prefWidth="640.0">
                                  <items>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                        <children>
@@ -457,7 +457,7 @@
                                              <children>
                                                 <Label text="Matrix:">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox fx:id="determinantDimension" prefWidth="150.0" value="1" GridPane.columnIndex="1">
@@ -482,27 +482,30 @@
                                                 <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                              </padding>
                                              <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="Verdana Pro Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="determinantSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#determinantSetSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                          <Button fx:id="determinantSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#determinantSetSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix">
+                                             <font>
+                                                <Font name="Verdana Pro Light" size="12.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane fx:id="determinantAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
+                                          <AnchorPane fx:id="determinantAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
                                                       <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                                    </padding>
                                                    <font>
-                                                      <Font name="System Bold" size="14.0" />
+                                                      <Font name="Verdana Pro Semibold" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="determinantResult" layoutX="14.0" layoutY="41.0">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -515,11 +518,11 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Inverse">
+                  <Tab style="-fx-font-family: &quot;Verdana Pro Light&quot;;" text="Inverse">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="230.0" prefWidth="640.0">
                                  <items>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                        <children>
@@ -537,7 +540,7 @@
                                              <children>
                                                 <Label text="Matrix:">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox fx:id="inverseDimension" prefWidth="150.0" value="1" GridPane.columnIndex="1">
@@ -562,25 +565,28 @@
                                                 <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                              </padding>
                                              <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="Verdana Pro Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="inverseSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#inverseSetSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                          <Button fx:id="inverseSetSquareMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#inverseSetSquareMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix">
+                                             <font>
+                                                <Font name="Verdana Pro Light" size="12.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane fx:id="inverseAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
+                                          <AnchorPane fx:id="inverseAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
                                                       <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                                    </padding>
                                                    <font>
-                                                      <Font name="System Bold" size="14.0" />
+                                                      <Font name="Verdana Pro Semibold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <GridPane fx:id="inverseResultGrid" hgap="2.0" layoutX="14.0" layoutY="41.0" vgap="2.0">
+                                                <GridPane fx:id="inverseResultGrid" hgap="2.0" layoutX="14.0" layoutY="41.0" style="-fx-font-family: &quot;Verdana Pro Light&quot;;" vgap="2.0">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
@@ -591,7 +597,7 @@
                                                 </GridPane>
                                                 <Label fx:id="inverseErrorMessage" layoutX="15.0" layoutY="40.0">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -607,11 +613,11 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Gauss Elimination">
+                  <Tab style="-fx-font-family: &quot;Verdana Pro Light&quot;;" text="Gauss Elimination">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="197.0" prefWidth="640.0">
+                              <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="230.0" prefWidth="640.0">
                                  <items>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                        <children>
@@ -631,7 +637,7 @@
                                              <children>
                                                 <Label text="Matrix:">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox fx:id="gaussRows" prefWidth="150.0" value="1" GridPane.columnIndex="1">
@@ -666,7 +672,7 @@
                                                 </ChoiceBox>
                                                 <Label text="X" GridPane.columnIndex="2">
                                                    <font>
-                                                      <Font name="Century Gothic" size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -676,25 +682,28 @@
                                                 <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                              </padding>
                                              <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="Verdana Pro Semibold" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="gaussSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#gaussSetMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix" />
+                                          <Button fx:id="gaussSetMatrixButton" layoutX="12.0" layoutY="98.0" mnemonicParsing="false" onAction="#gaussSetMatrixButtonPressed" prefHeight="25.0" prefWidth="207.0" text="Set Matrix">
+                                             <font>
+                                                <Font name="Verdana Pro Light" size="12.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0">
                                        <content>
-                                          <AnchorPane fx:id="gaussAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="315.0">
+                                          <AnchorPane fx:id="gaussAnchorPane" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="230.0" prefWidth="315.0">
                                              <children>
                                                 <Label text="Result:">
                                                    <padding>
                                                       <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                                                    </padding>
                                                    <font>
-                                                      <Font name="System Bold" size="14.0" />
+                                                      <Font name="Verdana Pro Semibold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <GridPane fx:id="gaussResultGrid" hgap="2.0" layoutX="14.0" layoutY="41.0" vgap="2.0">
+                                                <GridPane fx:id="gaussResultGrid" hgap="2.0" layoutX="14.0" layoutY="41.0" style="-fx-font-family: &quot;Verdana Pro Light&quot;;" vgap="2.0">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
@@ -703,9 +712,9 @@
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                    </rowConstraints>
                                                 </GridPane>
-                                                <Label fx:id="gaussErrorMessage" layoutX="63.0" layoutY="15.0">
+                                                <Label fx:id="gaussErrorMessage" layoutX="72.0" layoutY="14.0">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Verdana Pro Light" size="14.0" />
                                                    </font>
                                                 </Label>
                                              </children>

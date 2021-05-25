@@ -113,7 +113,7 @@ public class MatrixCalculatorController {
                 double[][] matB = MatrixOperations.ArrayToMatrix(matrixB, dimAB, colsB);
                 double[][] transposeB = MatrixOperations.Transpose(matB, dimAB, colsB);
 
-                ArrayList result = new ArrayList();
+                ArrayList<Double> result = new ArrayList<>();
                 double entry;
 
                 for (int i = 0; i < rowsA; i++) {
